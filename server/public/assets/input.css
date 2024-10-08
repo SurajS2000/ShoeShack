@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .sizeselector:checked+label{
+         @apply border-cyan-400 bg-cyan-400 text-white;
+    }
+}

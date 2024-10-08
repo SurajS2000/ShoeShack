@@ -1,0 +1,16 @@
+<%- include('navbartop'); -%>
+<div class="w-full bg-stone-100 p-10 mt-14 flex flex-col justify-center items-center">
+    <p class="text-3xl font-bold pb-10">Update User Details</p>
+    <form method="post" action="./updateuser?id=<%=data[0].user_id%>" class="flex flex-col p-10 bg-white rounded-md text-xl gap-5">
+        <label for="1">Name</label>
+        <inpu id="1" name="name" class="outline-none border border-slate-400 rounded-md p-2 text-base w-80" type="text" value="<%=data&&data[0].name%>">
+        <label for="2">Email</label>
+        <input id="2" name="email" class="outline-none border border-slate-400 rounded-md p-2 text-base" type="email" value="<%=data&&data[0].email%>">
+        <label for="3">Number</label>
+        <input id="3" name="number" class="outline-none border border-slate-400 rounded-md p-2 text-base" type="tel" value="<%=data&&data[0].number%>">
+        <label for="4">Password</label>
+        <input id="4" name="password" class="outline-none border border-slate-400 rounded-md p-2 text-base" type="text" value="<%=data&&data[0].password%>">
+        <button class="bg-cyan-400 text-white px-6 py-3 rounded-md mt-5" type="submit">UPDATE USER</button>
+    </form>
+</div>
+<%- include('navbarbottom'); -%>

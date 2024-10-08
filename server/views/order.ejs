@@ -1,0 +1,34 @@
+<%- include('navbartop'); -%>
+<div class="w-full bg-stone-100 p-10 mt-14">
+  <h1 class="text-3xl font-bold pb-10">Order List</h1>
+  <div class="w-full bg-white p-5 rounded-md shadow-md">
+    <form action="">
+      <div class="flex w-72 border border-slate-400 rounded-md">
+        <input
+          class="outline-none w-full mx-3 my-2"
+          type="text"
+          placeholder="Search order"
+        />
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass mx-3 my-2"></i>
+        </button>
+      </div>
+    </form>
+    <div class="w-full">
+      <div
+        class="w-full bg-slate-100 rounded-md py-3 px-5 mt-5 flex items-center justify-between"
+      >
+        <div class="flex gap-3 items-center">
+          <i class="fa-solid fa-image"></i>
+          <p>sam</p>
+        </div>
+        <p>1</p>
+        <p>2500</p>
+        <p>success</p>
+        <p>test@gmail.com</p>
+        <a class="p-2 bg-cyan-400 rounded-md" href="">delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('navbarbottom'); -%>

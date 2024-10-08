@@ -1,0 +1,40 @@
+<%- include('top'); -%>
+<div class="flex justify-center items-center h-screen">
+  <form
+    class="bg-white block p-4 max-w-96 rounded-lg shadow-lg"
+    action="/admin/login"
+    method="post"
+  >
+    <p class="text-xl font-semibold text-center">Sign in to your account</p>
+    <div class="relative">
+      <input
+        class="outline-none border border-gray-300 my-8 p-4 pr-12 text-sm w-80 rounded-lg shadow-sm"
+        type="text"
+        name="username"
+        value=""
+        placeholder="Enter username"
+      />
+      <span> </span>
+    </div>
+    <div class="relative">
+      <input
+        class="outline-none border border-gray-300 p-4 pr-12 text-sm w-80 rounded-lg shadow-sm"
+        type="password"
+        name="password"
+        value=""
+        placeholder="Enter password"
+      />
+    </div>
+    <button
+      type="submit"
+      class="outline-none border border-gray-300 my-8 block py-3 px-5 bg-cyan-400 text-white text-sm text font-medium w-full rounded-lg uppercase"
+    >
+      Sign in
+    </button>
+  </form>
+</div>
+<% if (message) { %>
+<script>
+  alert("Wrong Credentials");
+</script>
+<% } %> <%- include('bottom'); -%>

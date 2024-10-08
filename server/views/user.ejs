@@ -1,0 +1,48 @@
+<%- include('navbartop'); -%>
+<div class="w-full bg-stone-100 p-10 mt-14">
+  <h1 class="text-3xl font-bold pb-10">All Users</h1>
+  <div class="w-full bg-white p-5 rounded-md shadow-md">
+    <form action="./searchuser" method="get">
+      <div class="flex w-72 border border-slate-400 rounded-md">
+        <input
+          class="outline-none w-full mx-3 my-2"
+          type="text"
+          placeholder="Search user"
+          name="search"
+        />
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass mx-3 my-2"></i>
+        </button>
+      </div>
+    </form>
+    <div class="w-full">
+      <% for (i=0; i < data.length; i++) { %>
+      <div
+        class="w-full bg-slate-100 rounded-md py-3 px-5 mt-5 flex items-center justify-between"
+      >
+        <div class="flex gap-3 items-center w-40">
+          <i class="fa-solid fa-circle-user"></i>
+          <p><%=data[i].name%></p>
+        </div>
+        <div class="flex justify-between">
+          <p class="w-60"><%=data[i].email%></p>
+          <p class="w-40"><%=data[i].number%></p>
+        </div>
+        <div>
+          <a
+            class="p-2 bg-cyan-400 rounded-md mr-5"
+            href="./deleteuser?id=<%=data[i].user_id%>"
+            >delete</a
+          >
+          <a
+            class="p-2 bg-cyan-400 rounded-md"
+            href="./updateuser?id=<%=data[i].user_id%>"
+            >update</a
+          >
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include('navbarbottom'); -%>

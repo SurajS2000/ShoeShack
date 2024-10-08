@@ -1,0 +1,35 @@
+<%- include('top'); -%>
+<div class="h-screen flex">
+  <div id="sidenav" class="h-full w-56 bg-cyan-400">
+    <div
+      class="w-full border-b px-2 py-3 flex items-center justify-between text-white text-2xl"
+    >
+      <p>ShoeShack</p>
+      <div id="navclose" class="hover:cursor-pointer"><i  class="fa-solid fa-xmark"></i></div>
+    </div>
+    <div class="text-cyan-400 px-2 py-10 w-full flex flex-col gap-10  text-lg">
+      <a class="bg-white flex items-center pl-5 p-3 w-full rounded-xl" href="./dashboard"
+        ><i class="fa-solid fa-border-all pr-2"></i>Dashboard</a
+      >
+      <a class="bg-white flex items-center pl-5 p-3 w-full rounded-xl" href="./addproduct"
+        ><i class="fa-solid fa-circle-plus pr-2"></i>Add Product</a
+      >
+      <a class="bg-white flex items-center pl-5 p-3 w-full rounded-xl" href="./productlist"
+        ><i class="fa-solid fa-cart-shopping pr-2"></i>Product List</a
+      >
+      <a class="bg-white flex items-center pl-5 p-3 w-full rounded-xl" href="./order"
+        ><i class="fa-regular fa-clipboard pr-2"></i>Order</a
+      >
+      <a class="bg-white flex items-center pl-5 p-3 w-full rounded-xl" href="./users"
+        ><i class="fa-regular fa-user pr-2"></i>User</a
+      >
+    </div>
+  </div>
+  <div class="w-full h-full overflow-y-scroll">
+    <div class="w-full flex items-center bg-cyan-300 px-5 py-3 fixed">
+        <div id="navopen" class="hidden hover:cursor-pointer"><i class="fa-solid fa-bars text-white"></i></div>
+      <form class="py-1 px-3 ml-5 rounded-lg bg-white w-fit">
+        <input class="outline-none w-60" placeholder="Search here..." type="text">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>

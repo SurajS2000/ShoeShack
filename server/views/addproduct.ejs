@@ -1,0 +1,147 @@
+<%- include('navbartop'); -%>
+<div class="w-full bg-stone-100 p-10 mt-14">
+  <h1 class="text-3xl font-bold pb-10">Add Details</h1>
+  <form
+    method="post"
+    action="<%=url%>"
+    class="flex w-full gap-10 justify-around"
+    enctype="multipart/form-data"
+  >
+    <div class="bg-white shadow-md rounded-md p-10 w-full">
+      <label for="productname">Product name</label>
+      <input
+        name="productname"
+        id="productname"
+        type="text"
+        required
+        value="<%=data&&data[0].name%>"
+        class="w-full block p-2 outline-none border border-slate-400 rounded-md my-3"
+      />
+      <label class="inline-block pr-5 w-64" for="category">
+        <p>Category</p>
+        <select
+          name="category"
+          id="category"
+          required
+          class="p-2 w-full outline-none border border-slate-400 rounded-md my-3"
+        >
+          <option value="mens">Mens</option>
+          <option value="womens">Womens</option>
+          <option value="kids">Kids</option>
+        </select>
+      </label>
+      <label class="inline-block w-64" for="Subcategory">
+        <p>Subcategory</p>
+        <select
+          name="subcategory"
+          id="Subcategory"
+          required
+          class="p-2 w-full outline-none border border-slate-400 rounded-md my-3"
+        >
+          <option value="formal">Formal</option>
+          <option value="casual">Casual</option>
+          <option value="sports">Sports</option>
+        </select>
+      </label>
+      <br />
+      <label for="brand">Brand</label>
+      <input
+        name="brand"
+        id="brand"
+        type="text"
+        required
+        value="<%=data&&data[0].brand%>"
+        class="block w-full p-2 outline-none border border-slate-400 rounded-md my-3"
+      />
+      <label for="discription">Discription</label>
+      <textarea
+        id="discription"
+        name="discription"
+        rows="4"
+        required
+        class="block w-full p-2 outline-none border border-slate-400 rounded-md my-3"
+      >
+<%=data&&data[0].description%></textarea
+      >
+    </div>
+    <div class="bg-white w-full shadow-md rounded-md p-10">
+      <label for="orgprice">Orginal price</label>
+      <input
+        id="orgprice"
+        name="orginalprice"
+        type="number"
+        required
+        value="<%=data&&data[0].orginal_price%>"
+        class="block w-full p-2 outline-none border border-slate-400 rounded-md my-3"
+      />
+      <label for="price">Offer price</label>
+      <input
+        id="price"
+        name="offerprice"
+        required
+        type="number"
+        value="<%=data&&data[0].offer_price%>"
+        class="block w-full p-2 outline-none border border-slate-400 rounded-md my-3"
+      />
+      <p class="">Add image</p>
+      <div class="py-3">
+        <label
+          for="image"
+          class="w-full rounded-md flex border-slate-400 justify-center items-center border"
+        >
+          <i class="fa-regular fa-plus text-3xl my-3 block"></i>
+        </label>
+        <div id="showimage" class="flex gap-5 flex-wrap pt-3"></div>
+      </div>
+      <input
+        name="image"
+        class="hidden"
+        id="image"
+        type="file"
+        multiple="multiple"
+        accept="image/png, image/jpeg, image/jpg, image/webp"
+      />
+      <label for="size">Available size</label>
+      <input
+        id="size"
+        name="size"
+        type="text"
+        required
+        value="<%=data&&data[0].available_size%>"
+        class="block w-full p-2 outline-none border border-slate-400 rounded-md my-3"
+      />
+      <div class="w-full flex justify-center mt-10">
+        <button
+          class="bg-cyan-400 text-white px-6 py-3 rounded-md"
+          type="submit"
+        >
+          <i class="fa-solid fa-square-plus pr-2"></i>Add product
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+  const image = document.getElementById("image");
+  const imgcont = document.getElementById("showimage");
+  image.addEventListener("change", () => {
+    let a = image.files;
+    imgcont.innerHTML = "";
+    for (i = 0; i < a.length; i++) {
+      let filesize = a[i].size / 1048576;
+      console.log(filesize);
+      if (filesize > 2) {
+        alert("File is too big!");
+        image.value = "";
+        imgcont.innerHTML = "";
+        break;
+      }
+      if (image.value) {
+        imgcont.innerHTML += `<img class='w-24 h-24 p-1 border border-slate-400 rounded-md' src=${URL.createObjectURL(
+          image.files[i]
+        )} alt="">`;
+      }
+    }
+  });
+</script>
+<%- include('navbarbottom'); -%>

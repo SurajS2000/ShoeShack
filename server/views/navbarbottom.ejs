@@ -1,0 +1,16 @@
+ </div>
+</div>
+<script>
+   const navopen = document.getElementById("navopen");
+   const navclose = document.getElementById("navclose");
+   const nav = document.getElementById("sidenav");
+   navclose.addEventListener('click',()=>{
+    nav.style.display='none';
+    navopen.style.display='block';
+   });
+   navopen.addEventListener('click',()=>{
+    nav.style.display='block';
+    navopen.style.display='none';
+   });
+</script>
+<%- include('bottom'); -%>
